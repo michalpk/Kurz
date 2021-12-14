@@ -1,10 +1,12 @@
 require('dotenv').config()
 const express = require('express')
+const cors = require('cors')
 const app = express()
 
 const authController = require('./controllers/auth')
 const tokenHandler = require('./middleware/tokenHandler')
 
+app.use(cors())
 app.use(express.json())
 
 app.use('/auth', authController)
